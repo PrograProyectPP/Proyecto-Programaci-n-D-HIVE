@@ -1,5 +1,3 @@
-Aquí tienes un borrador de un README para GitHub.
-
 <br>
 
 📟 Sistema de Impresoras 3D D-HIVE
