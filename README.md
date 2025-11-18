@@ -1,51 +1,133 @@
-<br>
+🖨️ Sistema de Gestión de Impresoras 3D — D-HIVE
+Registro de uso | Control de impresoras | Historial CSV
 
-📟 Sistema de Impresoras 3D D-HIVE
-Este proyecto es una solución en Python para la gestión de impresoras 3D en entornos colaborativos como el laboratorio D-HIVE. El sistema facilita el control y la asignación de impresoras, optimizando el flujo de trabajo y la organización.
+Desarrollado con Streamlit y pensado para el laboratorio D-HIVE.
 
-✨ Características Principales
-Consulta de estado en tiempo real: Los usuarios pueden ver la disponibilidad de cada impresora.
+📌 Descripción del proyecto
 
-Solicitud simplificada: Permite a los usuarios reservar una impresora disponible.
+Este sistema permite gestionar el uso de las impresoras 3D del laboratorio D-HIVE.
+Incluye asignación de impresoras, liberación mediante código único, registro histórico y control de material utilizado (PLA en metros).
 
-Códigos de uso únicos: Cada reserva genera un código único para seguimiento y verificación.
+Este proyecto fue actualizado para mejorar el control del laboratorio y agregar registros automáticos en archivos CSV.
 
-🚀 Funcionalidades Detalladas
-Ver estado de impresoras
-Muestra una lista completa de todas las impresoras 3D. El estado se indica de la siguiente manera:
+🆕 Nuevos cambios incluidos
+✅ 1. Integración de base de datos en CSV para registros
 
-DISPONIBLE: La impresora está libre y lista para ser utilizada.
+Ahora el sistema guarda automáticamente en registros.csv:
 
-OCUPADA: Muestra el nombre del usuario y el código de asignación, lo que permite identificar quién la está utilizando.
+Carné del usuario
 
-Solicitar una impresora
-El proceso de solicitud es sencillo:
+Impresora asignada
 
-El usuario introduce su nombre.
+Código único de liberación
 
-El sistema presenta las impresoras que están DISPONIBLE.
+Cantidad de filamento utilizado (en metros)
 
-Al seleccionar una, se genera automáticamente un código de uso único, que funciona como comprobante de la reserva.
+Estos datos permiten un historial organizado y exportable.
 
-🖨️ Impresoras Soportadas
-El sistema está configurado para gestionar las siguientes impresoras:
+✅ 2. Nuevo registro de usuarios
 
-Ultimaker 1
+Cada vez que un estudiante solicita una impresora:
 
-Ultimaker 2
+Se registra su número de carné
 
-Ultimaker 3
+Se asocia con la impresora utilizada
 
-Ultimaker 4
+Se genera un código único de liberación
 
-Bambu Lab
+Se guarda su sesión en un archivo CSV
 
-Creativity
+Esto permite un control más profesional y auditable.
 
-▶️ Guía de Uso
-Para ejecutar el programa, clona este repositorio e inicia el script de Python:
-git clone <URL_DEL_REPOSITORIO>
-cd <NOMBRE_DEL_REPOSITORIO>
-python impresoras.py
-<br>
-Esperamos que este sistema sea de gran utilidad en el laboratorio. ¡A imprimir! 🚀
+✅ 3. Nuevo campo: “Metros de filamento PLA”
+
+El usuario ahora ingresa:
+
+Cantidad de filamento PLA (m)
+
+
+El sistema guarda esos metros en el archivo CSV.
+
+Esto permite controlar consumo de material para cálculo de costos, inventario y mantenimiento.
+
+✅ 4. Actualización de archivos de estado
+
+El archivo impresoras.txt guarda:
+
+Nombre de impresora | Estado | Código de liberación
+
+
+Esto permite mantener persistencia al reiniciar la app.
+
+📂 Archivos incluidos
+Archivo	Descripción
+app.py (tu código)	Código principal en Streamlit
+impresoras.txt	Estado actual de cada impresora
+registros.csv	Historial completo de uso
+impresoras.csv	(Opcional según tus pruebas)
+🧠 Cómo funciona el sistema
+🔹 1. Ver estado de impresoras
+
+Muestra una tabla con:
+
+Impresoras libres
+
+Impresoras ocupadas
+
+Nombre del usuario que la está utilizando
+
+🔹 2. Solicitar impresora
+
+El estudiante ingresa:
+
+Carné
+
+Metros de PLA a usar
+
+El sistema:
+
+Verifica disponibilidad
+
+Asigna impresora
+
+Genera un código de liberación
+
+Guarda todo en impresoras.txt
+
+Registra la sesión en registros.csv
+
+🔹 3. Liberar impresora
+
+El usuario:
+
+Selecciona la impresora ocupada
+
+Ingresa el código de liberación
+
+El sistema:
+
+Valida el código
+
+Libera la impresora
+
+Actualiza impresoras.txt
+
+🔹 4. Registros anteriores
+
+Lee el CSV y muestra el historial en una tabla con:
+
+Carné
+
+Impresora
+
+Código
+
+Metros utilizados
+
+🚀 Cómo ejecutar
+pip install streamlit pandas
+streamlit run app.py
+
+❤️ Créditos
+
+Proyecto creado para el laboratorio D-HIVE
