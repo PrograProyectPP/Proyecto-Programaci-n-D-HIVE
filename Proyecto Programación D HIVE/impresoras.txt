@@ -1,0 +1,6 @@
+Ultimaker 1,LIBRE,
+Ultimaker 2,LIBRE,
+Ultimaker 3,LIBRE,
+Ultimaker 4,LIBRE,
+Bambu Lab,LIBRE,
+Creativity,LIBRE,
